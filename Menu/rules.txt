@@ -1,0 +1,21 @@
+Règles du tetris like:
+
+Le but est de placer vos pièces de telle sorte qu'elles forment des lignes et des colonnes.
+Vos points sont comptés en fonction du nombre de lignes et de colonnes que vous remplissez.
+Les lignes et les colonees remplies disparaitront.
+Vous disposez de 3 vies pour poser vos pièces.
+Pour poser une pièce il suffit d'indiquer les coordonnées du coin en bas à gauche de la pièce.
+
+ATTENTION :
+
+Les pièces sont au format standardisé 5x5.
+Certaines pièces ne remplissent pas forcément le coin en bas à gauche.
+Le point de référence vous sera indiqué par un clignotement du pixel en question.
+
+
+Lors du lancement du jeu, vous devrez choisir la forme de votre plateau ainsi que la difficulté.
+La forme du plateau va influer sur les pièces auquelles vous aurez accès.
+
+Les difficultés proposées son : "Zen" et "Challenge"
+
+En mode Zen : Toutes les pièces

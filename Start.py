@@ -1,0 +1,2 @@
+import navigate_functions
+navigate_functions.navigate_welcome()
