@@ -72,3 +72,7 @@ def display_life(life):
             while line != "":
                 print(line[:-1])
                 line = heart.readline()
+
+Test
+teste
+
