@@ -27,18 +27,7 @@ def choose_board():
 
 
 def select_playable_pieces(board):
-    playable_pieces = []
-    with open("Pieces/common_pieces.txt", 'r') as common_pieces:
-        line = common_pieces.readline()
-        while line != "":
-            playable_pieces.append(line[:-1])
-            line = common_pieces.readline()
-    with open("Pieces/" + board + "_pieces.txt", 'r') as special_pieces:
-        line = special_pieces.readline()
-        while line != "":
-            playable_pieces.append(line[:-1])
-            line = special_pieces.readline()
-    return playable_pieces
+    playable_pieces = other_functions.transfer_pieces_to_dictionary(board)
 
 
 def verify(num_life):
