@@ -1,6 +1,3 @@
-from Test import liste
-
-
 def change_character(board):
     liste = []
     for line in board:
@@ -46,11 +43,11 @@ def transform_pieces_to_tuple(board):
 
 def transfer_pieces_to_dictionary(board):
     playable_pieces = {}
-    tuple_playbale_pieces = transform_pieces_to_tuple(board)
+    tuple_playable_pieces = transform_pieces_to_tuple(board)
     liste_2 = []
     i = 1
-    for line in tuple_playbale_pieces:
-        if len(line) == ";":
+    for line in tuple_playable_pieces:
+        if len(line) == 10:
             liste_2.append(line[:-1])
             playable_pieces[i] = liste_2
             liste_2 = []

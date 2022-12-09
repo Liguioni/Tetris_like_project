@@ -70,7 +70,7 @@
 
 
 liste = ['0 1 0 1 0;', '1 0 1 1 0;', '0 1 0 1 1']
-for line in liste :
+for line in liste:
     if line[-1] == ';':
         print(line[:-1])
     else :

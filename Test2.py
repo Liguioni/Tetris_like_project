@@ -14,9 +14,14 @@ import other_functions
 #print(liste)
 
 
-def select_playable_pieces(board):
-    matrice_of_pieces = other_functions.transfer_pieces_to_dictionary("common") + other_functions.transfer_pieces_to_dictionary(board)
+board = "triangle"
 
-
-matrice_of_pieces = select_playable_pieces("common") + select_playable_pieces("circle")
-print(matrice_of_pieces)
+with open("Pieces/common_pieces.txt", "r") as common_pieces:
+    contenu1 = common_pieces.read()
+with open("Pieces/" + board + "_pieces.txt", "r") as special_pieces:
+    contenu2 = special_pieces.read()
+liste_1 = contenu1.split("\n")
+liste_2 = contenu2.split(("\n"))
+common_pieces = tuple(liste_1)
+special_pieces = tuple(liste_2)
+playable_pieces = common_pieces + special_pieces
