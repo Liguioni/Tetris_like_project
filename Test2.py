@@ -48,6 +48,20 @@ def PlacePiece():
         ligne = str(input("Choisissez la ligne : "))
         colonne = str(input("choisissez la colonne : "))
     
+    
+def validPlacement(liste):
+    v = 0
+    for i in range():
+        for j in range():
+            if liste[i][j] > 2:
+                v = 1
+    if v == 1:
+        return False
+    else:
+        return True
+                
+            
+            
 
 
 
