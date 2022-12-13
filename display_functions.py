@@ -106,9 +106,40 @@ def display_pieces_Zen_mode(playable_pieces):
         print()
     print()
 
+def display_pieces_Defi_mode(playable_pieces):
+    for k in range(5):
+        if k == 2:
+            print("", "1" + ":", playable_pieces[1][k], end="  ")
+        else:
+            print("    " + playable_pieces[1][k], end="      ")
+        for l in range(2, 4):
+            if k == 2:
+                print((l), ":", playable_pieces[1][k], end="  ")
+            else:
+                print(playable_pieces[1][k], end="      ")
+            print()
+        print()
+def display_pieces_Defi_modeV2(playable_pieces, ChosenPiece):
+    A = []
+    for i in range(3):
+        A.append(playable_pieces[ChosenPiece[i]])
+    print(A)
+    for k in range(5):
+        for j in range(3):
+            if k == 2:
+                print("", "1" + ":", A[j][k] , end="  ")
+            else:
+                print("    " + A[j][k], end="      ")
+            for l in range(2, 4):
+                if k == 2:
+                    print((l), ":", A[j][k], end="  ")
+                else:
+                    print(A[j][k], end="      ")
+                print()
+            print()
 
-def display_pieces(game_mode, playable_pieces):
+def display_pieces(game_mode, playable_pieces, ChosenPiece):
     if game_mode == "Zen":
         display_pieces_Zen_mode(playable_pieces)
     else:
-        print("non")
+        display_pieces_Defi_modeV2(playable_pieces, ChosenPiece)

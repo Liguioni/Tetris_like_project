@@ -43,10 +43,17 @@ def select_playable_pieces(board):
 def verify(num_life):
     num_life
 
+def RandPieceDefi(playable_pieces):       #Là j'ai pris 3 keys aléatoire et il faut maintenant afficher à un endroit les 3 pièces choisi. Incruster dans le prog une fonction display
+    import random                                                   #Je sais pas pourquoi mais je peux pas essayer la fonction donc je sais pas si elle marche
+    ChosenPiece = []
+    ListeModi = playable_pieces.keys()
+    for i in range(3):
+        B = random.randint(0, len(ListeModi)-1)
+        ChosenPiece.append(ListeModi[B])
+        del ListeModi[B]
+    return ChosenPiece
 
 #def calculate_score():
-
-
 
 def play():
     board = choose_board()
@@ -56,6 +63,9 @@ def play():
     life = 3
     choice = 0
     score = 0
+    ChosenPiece = RandPieceDefi(playable_pieces)
+    print(playable_pieces)
+    print(ChosenPiece)
     while life > 0 or choice != "quitter":
         print()
         display_functions.display_life(life)
@@ -64,7 +74,7 @@ def play():
         print()
         display_functions.display_grid(other_functions.change_character(grid))
         print()
-        display_functions.display_pieces(game_mode, playable_pieces)
+        display_functions.display_pieces(game_mode, playable_pieces, ChosenPiece)
         print()
         choice = input("Choisissez une pièce :")
 

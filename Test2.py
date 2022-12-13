@@ -29,11 +29,11 @@ import display_functions
 #special_pieces = tuple(liste_2)
 #playable_pieces = common_pieces + special_pieces
 
-def RandPiece(transfer_pieces_to_dictionary(choose_board())):       #Là j'ai pris 3 keys aléatoire et il faut maintenant afficher à un endroit les 3 pièces choisi. Incruster dans le prog une fonction display
+def RandPieceDefi(playable_pieces):       #Là j'ai pris 3 keys aléatoire et il faut maintenant afficher à un endroit les 3 pièces choisi. Incruster dans le prog une fonction display
     import random                                                   #Je sais pas pourquoi mais je peux pas essayer la fonction donc je sais pas si elle marche
     ChosenPiece = []
     for i in range(3):
-        ChosenPiece[i] = playable_pieces[random.randint(1, len(playable_pieces.keys()))]
+        ChosenPiece[i] = random.randint(1, len(playable_pieces.keys()))
     return ChosenPiece
 
 def Display_ChosenPiece():                                          #La j'affiche les 3 pièces
@@ -41,7 +41,7 @@ def Display_ChosenPiece():                                          #La j'affich
 
 def PlacePiece():
     Choix = int(input("Pour choisir la première pièce, tapez 1. Pour choisir la deuxième pièces, tapez 2. Pour choisir la troisième pièce, tapez 3. Pour appeller le service client, tapez 4."))
-    L = [][]
+    L = []
     ligne = str(input("Choisissez la ligne : "))
     colonne = str(input("choisissez la colonne : "))
     while (64 < ord(ligne) < 91) and (96 < ord(colonne) < 123):         #Ascii de A à Z et de a à z
@@ -62,6 +62,17 @@ def validPlacement(liste):
                 
             
             
-
-
+def display_pieces_Defi_mode(playable_pieces):
+    for k in range(5):
+        if k == 2:
+            print("", "1" + ":", playable_pieces[1 + j * 10][k], end="  ")
+        else:
+            print("    " + playable_pieces[1 + j * 10][k], end="      ")
+        for l in range(2, 4):
+            if k == 2:
+                print((l+(10*j)), ":", playable_pieces[l + j*10][k], end="  ")
+            else:
+                print(playable_pieces[l + j*10][k], end="      ")
+            print()
+        print()
 
