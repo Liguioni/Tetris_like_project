@@ -28,30 +28,28 @@ def transform_board_into_matrice(board):
     return liste
 
 
-def transform_pieces_to_tuple(board):
+def transform_pieces_to_matrice(board):
     with open("Pieces/common_pieces.txt", "r") as common_pieces:
         contenu1 = common_pieces.read()
     with open("Pieces/" + board + "_pieces.txt", "r") as special_pieces:
         contenu2 = special_pieces.read()
-    liste_1 = contenu1.split("\n")
-    liste_2 = contenu2.split(("\n"))
-    common_pieces = tuple(liste_1)
-    special_pieces = tuple(liste_2)
+    common_pieces = contenu1.split("\n")
+    special_pieces= contenu2.split(("\n"))
     playable_pieces = common_pieces + special_pieces
     return playable_pieces
 
 
 def transfer_pieces_to_dictionary(board):
     playable_pieces = {}
-    tuple_playable_pieces = transform_pieces_to_tuple(board)
-    liste_2 = []
+    matrice_playable_pieces = transform_pieces_to_matrice(board)
+    liste = []
     i = 1
-    for line in tuple_playable_pieces:
+    for line in matrice_playable_pieces:
         if len(line) == 10:
-            liste_2.append(line[:-1])
-            playable_pieces[i] = liste_2
-            liste_2 = []
+            liste.append(line[:-1])
+            playable_pieces[i] = liste
+            liste = []
             i += 1
         else:
-            liste_2.append(line)
+            liste.append(line)
     return playable_pieces

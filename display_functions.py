@@ -81,31 +81,28 @@ def display_score(score):
 
 
 def display_pieces_Zen_mode(playable_pieces):
-    times = int((len(playable_pieces.keys()) - (len(playable_pieces.keys()) // 10)) / 10)
+    times = int((len(playable_pieces.keys())) // 10)
     for j in range(times):
         for k in range(5):
-            if k == 2:
-                if ((j*10)+1) < 10:
-                    print("", ((j*10)+1) + ":", playable_pieces[1 + j * 10][k], end="  ")
-                else:
-                    print(((j * 10) + 1), ":", playable_pieces[1 + j * 10][k], end="  ")
-            else:
-                print("    " + playable_pieces[1 + j * 10][k], end="      ")
-            for l in range(2, 11):
+            for l in range(1, 11):
                 if k == 2:
-                    print((l+(10*j)), ":", playable_pieces[l + j*10][k], end="  ")
+                    if (l+(10*j)) < 10:
+                        print("   ", str(l+(10*j)) + ":", playable_pieces[l + (j*10)][k], end="")
+                    else:
+                        print("  ", str(l + (10*j)) + ":", playable_pieces[l + (j*10)][k], end="")
                 else:
-                    print(playable_pieces[l + j*10][k], end="      ")
+                    print("      ", playable_pieces[l + (j*10)][k], end="")
             print()
         print()
-    for p in range(len(playable_pieces.keys()) // 10):
-        if p != 2:
-            print("    " + playable_pieces[1 + times * 10][p], end="      ")
-        for l in range(2, 11):
-            if p == 2:
-                print(l, ":", playable_pieces[l + times*10][p], end="  ")
+    for q in range(5):
+        for l in range(1, (len(playable_pieces.keys()) % 10)+1):
+            if q == 2:
+                if (l + (times*10)) < 10:
+                    print("   ", str(l + (times*10)) + ":", playable_pieces[l + (times*10)][q], end="")
+                else:
+                    print("  ", str(l + (times*10)) + ":", playable_pieces[l + (times*10)][q], end="")
             else:
-                print(playable_pieces[l + times*10][p], end="     ")
+                print("      ", playable_pieces[l + (times*10)][q], end="")
         print()
     print()
 
