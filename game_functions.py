@@ -6,17 +6,13 @@ def choose_board():
     display_functions.display_3_boards()
     board = ""
     choice = 0
-    while choice == 0:
+    while choice not in (1, 2, 3):
         print("")
         print("Appuyez sur 1 pour sélectionner le plateau en losange.")
         print("Appuyez sur 2 pour sélectionner le plateau en cercle.")
         print("Appuyez sur 3 pour sélectionner le plateau en triangle.")
         print()
-        choice = int(input(">>"))
-        if choice != 1:
-            if choice != 2:
-                if choice != 3:
-                    choice = 0
+        choice = int(input(">>>"))
     if choice == 1:
         board = "diamond"
     elif choice == 2:
@@ -30,11 +26,13 @@ def choose_game_mode():
     print("Mode Zen : 1")
     print("Mode Défi : 2")
     print()
-    choice = 0
-    while choice != 1 or 2:
-        choice = int(input(">>"))
-
-
+    choice = int(input("Choisissez votre mode de jeu :"))
+    while choice not in (1, 2):
+        choice = int(input("Choisissez votre mode de jeu :"))
+    if choice == 1:
+        choice = "Zen"
+    else:
+        choice == "Défi"
     return choice
 
 
@@ -46,6 +44,10 @@ def verify(num_life):
     num_life
 
 
+#def calculate_score():
+
+
+
 def play():
     board = choose_board()
     playable_pieces = select_playable_pieces(board)
@@ -53,13 +55,19 @@ def play():
     grid = other_functions.transform_board_into_matrice(board)
     life = 3
     choice = 0
+    score = 0
     while life > 0 or choice != "quitter":
         print()
         display_functions.display_life(life)
         print()
+        display_functions.display_score(score)
+        print()
         display_functions.display_grid(other_functions.change_character(grid))
         print()
-        choice = input("Choisissez l'emplacement de la pièce : ")
+        display_functions.display_pieces(game_mode, playable_pieces)
+        print()
+        choice = input("Choisissez une pièce :")
+
 
 #    with open("Boards/" + board + ".txt", 'r'):
 #

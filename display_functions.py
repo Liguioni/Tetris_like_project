@@ -72,3 +72,41 @@ def display_life(life):
             while line != "":
                 print(line[:-1])
                 line = heart.readline()
+
+
+def display_score(score):
+    print("==============================")
+    print("Score :", score)
+    print("==============================")
+
+
+def display_pieces_Zen_mode(playable_pieces):
+    times = (len(playable_pieces.keys()) - (len(playable_pieces.keys()) // 10)) / 10
+    for j in range(times):
+        for k in range(5):
+            if k != 2:
+                print("    " + playable_pieces[1 + j * 10][k], end="     ")
+            for l in range(2, 11):
+                if k == 2:
+                    print(l, ":", playable_pieces[l + j*10][k], end=" ")
+                else:
+                    print(playable_pieces[l + j*10][k], end="     ")
+            print()
+        print()
+    for p in range(len(playable_pieces.keys()) // 10):
+        if p != 2:
+            print("    " + playable_pieces[1 + times * 10][p], end="     ")
+        for l in range(2, 11):
+            if p == 2:
+                print(l, ":", playable_pieces[l + times*10][p], end=" ")
+            else:
+                print(playable_pieces[l + times*10][p], end="     ")
+        print()
+    print()
+
+
+def display_pieces(game_mode, playable_pieces):
+    if game_mode == "Zen":
+        display_pieces_Zen_mode(playable_pieces)
+    else:
+        print("non")
