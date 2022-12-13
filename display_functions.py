@@ -1,4 +1,5 @@
 import other_functions
+import game_functions
 
 
 def display_grid(matrice):
@@ -106,19 +107,7 @@ def display_pieces_Zen_mode(playable_pieces):
         print()
     print()
 
-def display_pieces_Defi_mode(playable_pieces):
-    for k in range(5):
-        if k == 2:
-            print("", "1" + ":", playable_pieces[1][k], end="  ")
-        else:
-            print("    " + playable_pieces[1][k], end="      ")
-        for l in range(2, 4):
-            if k == 2:
-                print((l), ":", playable_pieces[1][k], end="  ")
-            else:
-                print(playable_pieces[1][k], end="      ")
-            print()
-        print()
+
 def display_pieces_Defi_modeV2(playable_pieces, ChosenPiece):
     A = []
     for i in range(3):
@@ -138,8 +127,21 @@ def display_pieces_Defi_modeV2(playable_pieces, ChosenPiece):
                 print()
             print()
 
-def display_pieces(game_mode, playable_pieces, ChosenPiece):
+
+def display_pieces_Defi_modeV3(playable_pieces):
+    ChosenPiece = game_functions.RandPieceDefi(playable_pieces)
+    for k in range(5):
+        for j in range(len(ChosenPiece)):
+            if k == 2:
+                    print("   ", str(j+1) + ":", playable_pieces[ChosenPiece[j]][k], end="")
+            else:
+                print("      ", playable_pieces[ChosenPiece[j]][k], end="")
+        print()
+    print()
+
+
+def display_pieces(game_mode, playable_pieces):
     if game_mode == "Zen":
         display_pieces_Zen_mode(playable_pieces)
     else:
-        display_pieces_Defi_modeV2(playable_pieces, ChosenPiece)
+        display_pieces_Defi_modeV3(playable_pieces)

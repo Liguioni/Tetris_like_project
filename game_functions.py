@@ -54,7 +54,9 @@ def RandPieceDefi(playable_pieces):       #Là j'ai pris 3 keys aléatoire et il
     print(DicoTemp)
     return ChosenPiece
 
+
 #def calculate_score():
+
 
 def play():
     board = choose_board()
@@ -67,6 +69,7 @@ def play():
     score = 0
     ChosenPiece = RandPieceDefi(playable_pieces)
     print(ChosenPiece)
+    print(playable_pieces)
     while life > 0 or choice != "quitter":
         print()
         display_functions.display_life(life)
@@ -75,7 +78,7 @@ def play():
         print()
         display_functions.display_grid(other_functions.change_character(grid))
         print()
-        display_functions.display_pieces(game_mode, playable_pieces, ChosenPiece)
+        display_functions.display_pieces(game_mode, playable_pieces)
         print()
         choice = input("Choisissez une pièce :")
 
