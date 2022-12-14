@@ -28,21 +28,21 @@ def display_rules():
 def display_diamond():
     board = "diamond"
     matrice = other_functions.transform_board_into_matrice(board)
-    grid = other_functions.change_character(matrice)
+    grid = other_functions.change_character_board(matrice)
     display_grid(grid)
 
 
 def display_circle():
     board = "circle"
     matrice = other_functions.transform_board_into_matrice(board)
-    grid = other_functions.change_character(matrice)
+    grid = other_functions.change_character_board(matrice)
     display_grid(grid)
 
 
 def display_triangle():
     board = "triangle"
     matrice = other_functions.transform_board_into_matrice(board)
-    grid = other_functions.change_character(matrice)
+    grid = other_functions.change_character_board(matrice)
     display_grid(grid)
 
 
@@ -86,56 +86,39 @@ def display_pieces_Zen_mode(playable_pieces):
     for j in range(times):
         for k in range(5):
             for l in range(1, 11):
+                line = other_functions.change_character_piece(playable_pieces[l + (j*10)][k])
                 if k == 2:
                     if (l+(10*j)) < 10:
-                        print("   ", str(l+(10*j)) + ":", playable_pieces[l + (j*10)][k], end="")
+                        print("   ", str(l+(10*j)) + ":", line, end="")
                     else:
-                        print("  ", str(l + (10*j)) + ":", playable_pieces[l + (j*10)][k], end="")
+                        print("  ", str(l + (10*j)) + ":", line, end="")
                 else:
-                    print("      ", playable_pieces[l + (j*10)][k], end="")
+                    print("      ", line, end="")
             print()
         print()
     for q in range(5):
         for l in range(1, (len(playable_pieces.keys()) % 10)+1):
+            line = other_functions.change_character_piece(playable_pieces[l + (times*10)][q])
             if q == 2:
                 if (l + (times*10)) < 10:
-                    print("   ", str(l + (times*10)) + ":", playable_pieces[l + (times*10)][q], end="")
+                    print("   ", str(l + (times*10)) + ":", line, end="")
                 else:
-                    print("  ", str(l + (times*10)) + ":", playable_pieces[l + (times*10)][q], end="")
+                    print("  ", str(l + (times*10)) + ":", line, end="")
             else:
-                print("      ", playable_pieces[l + (times*10)][q], end="")
+                print("      ", line, end="")
         print()
     print()
-
-
-def display_pieces_Defi_modeV2(playable_pieces, ChosenPiece):
-    A = []
-    for i in range(3):
-        A.append(playable_pieces[ChosenPiece[i]])
-    print(A)
-    for k in range(5):
-        for j in range(3):
-            if k == 2:
-                print("", "1" + ":", A[j][k] , end="  ")
-            else:
-                print("    " + A[j][k], end="      ")
-            for l in range(2, 4):
-                if k == 2:
-                    print((l), ":", A[j][k], end="  ")
-                else:
-                    print(A[j][k], end="      ")
-                print()
-            print()
 
 
 def display_pieces_Defi_modeV3(playable_pieces):
     ChosenPiece = game_functions.RandPieceDefi(playable_pieces)
     for k in range(5):
         for j in range(len(ChosenPiece)):
+            line = other_functions.change_character_piece(playable_pieces[ChosenPiece[j]][k])
             if k == 2:
-                    print("   ", str(j+1) + ":", playable_pieces[ChosenPiece[j]][k], end="")
+                print("   ", str(j+1) + ":", line, end="")
             else:
-                print("      ", playable_pieces[ChosenPiece[j]][k], end="")
+                print("      ", line, end="")
         print()
     print()
 

@@ -50,8 +50,7 @@ def RandPieceDefi(playable_pieces):       #Là j'ai pris 3 keys aléatoire et il
     for i in range(3):
         B = random.randint(1, len(DicoTemp.keys()))
         ChosenPiece.append(B)
-        DicoTemp.pop(B,None)
-    print(DicoTemp)
+        DicoTemp.pop(B, None)
     return ChosenPiece
 
 
@@ -61,22 +60,18 @@ def RandPieceDefi(playable_pieces):       #Là j'ai pris 3 keys aléatoire et il
 def play():
     board = choose_board()
     playable_pieces = select_playable_pieces(board)
-    print(playable_pieces)
     game_mode = choose_game_mode()
     grid = other_functions.transform_board_into_matrice(board)
     life = 3
     choice = 0
     score = 0
-    ChosenPiece = RandPieceDefi(playable_pieces)
-    print(ChosenPiece)
-    print(playable_pieces)
     while life > 0 or choice != "quitter":
         print()
         display_functions.display_life(life)
         print()
         display_functions.display_score(score)
         print()
-        display_functions.display_grid(other_functions.change_character(grid))
+        display_functions.display_grid(other_functions.change_character_board(grid))
         print()
         display_functions.display_pieces(game_mode, playable_pieces)
         print()

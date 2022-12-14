@@ -1,4 +1,4 @@
-def change_character(board):
+def change_character_board(board):
     liste = []
     for line in board:
         column = []
@@ -15,6 +15,16 @@ def change_character(board):
                 liste[i][j - 1] = "["
                 liste[i][j] = " "
                 liste[i][j + 1] = "]"
+    return liste
+
+
+def change_character_piece(line):
+    liste = ""
+    for character in line:
+        if character == "0":
+            liste = liste + "   "
+        elif character == "1":
+            liste = liste + "[ ]"
     return liste
 
 
@@ -45,7 +55,7 @@ def transfer_pieces_to_dictionary(board):
     liste = []
     i = 1
     for line in matrice_playable_pieces:
-        if len(line) == 10:
+        if len(line) == 16:
             liste.append(line[:-1])
             playable_pieces[i] = liste
             liste = []
