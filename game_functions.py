@@ -40,43 +40,58 @@ def select_playable_pieces(board):
     playable_pieces = other_functions.transfer_pieces_to_dictionary(board)
     return playable_pieces
 
-def verify(num_life):
-    num_life
 
-def RandPieceDefi(playable_pieces):       #Là j'ai pris 3 keys aléatoire et il faut maintenant afficher à un endroit les 3 pièces choisi. Incruster dans le prog une fonction display
-    import random                                                   #Je sais pas pourquoi mais je peux pas essayer la fonction donc je sais pas si elle marche
-    ChosenPiece = []
-    DicoTemp = playable_pieces.copy()
+#def select_3_random_pieces(playable_pieces):
+#    import random
+#    ChosenPiece = []
+#    DicoTemp = playable_pieces.copy()
+#    for i in range(3):
+#        B = random.randint(1, len(DicoTemp.keys()))
+#        ChosenPiece.append(B)
+#        DicoTemp.pop(B, None)
+#    return ChosenPiece
+
+
+def select_3_random_piece_keys(playable_pieces):
+    import random
+    liste = []
+    keys = list(playable_pieces.keys())
     for i in range(3):
-        B = random.randint(1, len(DicoTemp.keys()))
-        ChosenPiece.append(B)
-        DicoTemp.pop(B, None)
-    return ChosenPiece
+        piece = random.choice(keys)
+        liste.append(piece)
+        j = 0
+        while piece != keys[j] or j == len(keys):
+            j += 1
+        del keys[j]
+    return liste
 
 
-#def calculate_score():
+def verify(board, piece, piece_coordinates):
+    for i in range(27, 1, -1):
+        if i ==
+            for j in range(3, len(board)-3, 3):
+
+
+
+def choose_initial_parameters():
+    parameters = (choose_board(), choose_game_mode())
+    return parameters
 
 
 def play():
-    board = choose_board()
-    playable_pieces = select_playable_pieces(board)
-    game_mode = choose_game_mode()
-    grid = other_functions.transform_board_into_matrice(board)
+    initial_parameters = choose_initial_parameters()
+    playable_pieces = select_playable_pieces(initial_parameters[0])
+    board = other_functions.transform_board_into_matrice(initial_parameters[0])
     life = 3
-    choice = 0
     score = 0
-    while life > 0 or choice != "quitter":
+    while life > 0 or piece_choice != "quitter":
+        display_functions.display_game(life, score, board, playable_pieces, initial_parameters)
+        piece_choice = input("Choisissez une pièce :")
+        while len(playable_pieces.keys()) < piece_choice < 1:
+            piece_choice = input("Choisissez une pièce :")
         print()
-        display_functions.display_life(life)
-        print()
-        display_functions.display_score(score)
-        print()
-        display_functions.display_grid(other_functions.change_character_board(grid))
-        print()
-        display_functions.display_pieces(game_mode, playable_pieces)
-        print()
-        choice = input("Choisissez une pièce :")
-
+        piece_coordinates = input("Choisissez son emplacement :")
+        verify(board, piece_choice, piece_coordinates)
 
 #    with open("Boards/" + board + ".txt", 'r'):
 #

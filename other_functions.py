@@ -1,33 +1,3 @@
-def change_character_board(board):
-    liste = []
-    for line in board:
-        column = []
-        for character in line:
-            column.append(character)
-        liste.append(column)
-    for i in range(len(liste)):
-        for j in range(len(liste[i])):
-            if liste[i][j] == "0":
-                liste[i][j] = " "
-            if liste[i][j] == "1":
-                liste[i][j] = "."
-            if liste[i][j] == "2":
-                liste[i][j - 1] = "["
-                liste[i][j] = " "
-                liste[i][j + 1] = "]"
-    return liste
-
-
-def change_character_piece(line):
-    liste = ""
-    for character in line:
-        if character == "0":
-            liste = liste + "   "
-        elif character == "1":
-            liste = liste + "[ ]"
-    return liste
-
-
 def transform_board_into_matrice(board):
     liste = []
     with open("Boards/" + board + ".txt", "r") as matrice:
@@ -63,3 +33,40 @@ def transfer_pieces_to_dictionary(board):
         else:
             liste.append(line)
     return playable_pieces
+
+
+def change_character_board(board):
+    liste = []
+    for line in board:
+        column = []
+        for character in line:
+            column.append(character)
+        liste.append(column)
+    for i in range(len(liste)):
+        for j in range(len(liste[i])):
+            if liste[i][j] == "0":
+                liste[i][j] = " "
+            if liste[i][j] == "1":
+                liste[i][j] = "."
+            if liste[i][j] == "2":
+                liste[i][j - 1] = "["
+                liste[i][j] = " "
+                liste[i][j + 1] = "]"
+    return liste
+
+
+def change_character_piece(line):
+    liste = ""
+    for character in line:
+        if character == "0":
+            liste = liste + "   "
+        elif character == "1":
+            liste = liste + "[ ]"
+    return liste
+
+
+def transform_coordinates_in_number(piece_coordinates):
+    line = ord(piece_coordinates[0])
+    column = ord(piece_coordinates[1])
+    coordinates = [line, column]
+    return coordinates

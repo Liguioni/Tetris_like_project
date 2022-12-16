@@ -47,11 +47,21 @@ def display_triangle():
 
 
 def display_3_boards():
-    display_diamond()
-    print("")
-    display_circle()
-    print("")
-    display_triangle()
+    with open("Boards/diamond.txt", 'r') as diamond:
+        L = diamond.readlines()
+        diamond.close()
+    with open("Boards/circle.txt", 'r') as circle:
+        C = circle.readlines()
+        circle.close()
+    with open("Boards/triangle.txt", 'r') as triangle:
+        T = triangle.readlines()
+        triangle.close()
+    board = []
+    for i in range(0, 29):
+        line = L[i][:-1] + "     " + C[i][:-1] + "     " + T[i][:-1]
+        board.append(line)
+    grid = other_functions.change_character_board(board)
+    display_grid(grid)
 
 
 def display_life(life):
@@ -111,7 +121,7 @@ def display_pieces_Zen_mode(playable_pieces):
 
 
 def display_pieces_Defi_modeV3(playable_pieces):
-    ChosenPiece = game_functions.RandPieceDefi(playable_pieces)
+    ChosenPiece = game_functions.select_3_random_piece_keys(playable_pieces)
     for k in range(5):
         for j in range(len(ChosenPiece)):
             line = other_functions.change_character_piece(playable_pieces[ChosenPiece[j]][k])
@@ -128,3 +138,15 @@ def display_pieces(game_mode, playable_pieces):
         display_pieces_Zen_mode(playable_pieces)
     else:
         display_pieces_Defi_modeV3(playable_pieces)
+
+
+def display_game(life, score, board, pieces, initial_parameters):
+    print()
+    display_life(life)
+    print()
+    display_score(score)
+    print()
+    display_grid(other_functions.change_character_board(board))
+    print()
+    display_pieces(initial_parameters[1], pieces)
+    print()
