@@ -150,3 +150,17 @@ def display_game(life, score, board, pieces, initial_parameters):
     print()
     display_pieces(initial_parameters[1], pieces)
     print()
+
+
+def display_piece_choice(playable_pieces):
+    piece_choice = input("Choisissez une pièce :")
+    while len(playable_pieces.keys()) < piece_choice < 1:
+        piece_choice = input("Choisissez une pièce :")
+    return piece_choice
+
+
+def display_piece_coordinates():
+    piece_coordinates = other_functions.transform_coordinates_to_line_columns(input("Choisissez son emplacement :"))
+    while ord("Z") < piece_coordinates[0] < ord("A") and ord("z") < piece_coordinates[1] < ord("a"):
+        piece_coordinates = other_functions.transform_coordinates_to_line_columns(input("Choisissez son emplacement :"))
+    return piece_coordinates

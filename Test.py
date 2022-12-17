@@ -88,22 +88,29 @@
 #    else:
 #        liste_2.append(line)
 
-playable_pieces = {1: "première pièce", 2: "deuxième pièce", 3: "troisième pièce", 4: "quatrième pièce"}
+#playable_pieces = {1: "première pièce", 2: "deuxième pièce", 3: "troisième pièce", 4: "quatrième pièce"}
 
 
-def select_3_random_key_pieces(playable_pieces):
-    import random
-    liste = []
-    keys = list(playable_pieces.keys())
-    print(keys)
-    for i in range(3):
-        piece = random.choice(keys)
-        liste.append(piece)
-        j = 0
-        while piece != keys[j] or j == len(keys):
-            j += 1
-        del keys[j]
-    print(keys)
-    print(liste)
+#def select_3_random_key_pieces(playable_pieces):
+#    import random
+#    liste = []
+#    keys = list(playable_pieces.keys())
+#    print(keys)
+#    for i in range(3):
+#        piece = random.choice(keys)
+#        liste.append(piece)
+#        j = 0
+#        while piece != keys[j] or j == len(keys):
+#            j += 1
+#        del keys[j]
+#    print(keys)
+#    print(liste)
 
-select_3_random_key_pieces(playable_pieces)
+piece_coordinates = "Aa"
+
+#def attribute_coordinates_to_line_columns(piece_coordinates):
+#    coordinates = [ord(piece_coordinates[0]), ord(piece_coordinates[1])]
+#    coordinates = [coordinates[0] - 65 + 2, coordinates[1] - 97 + 4 + 3 * (coordinates[1] - ord("a"))]
+#    return coordinates
+
+#attribute_coordinates_to_line_columns(piece_coordinates)

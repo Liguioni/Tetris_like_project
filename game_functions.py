@@ -66,10 +66,18 @@ def select_3_random_piece_keys(playable_pieces):
     return liste
 
 
-def verify(board, piece, piece_coordinates):
+def verify(board, piece, piece_coordinates, playable_pieces):
+    for i in range(5):
+        for j in range(5):
+            piece
     for i in range(27, 1, -1):
-        if i ==
+        if i == piece_coordinates[0]:
             for j in range(3, len(board)-3, 3):
+                if j == piece_coordinates[1]:
+                    if board[i][j] != 0:
+                        if board[i][j] == 1:
+                            board[i][j] = 2
+                        else:
 
 
 
@@ -86,12 +94,10 @@ def play():
     score = 0
     while life > 0 or piece_choice != "quitter":
         display_functions.display_game(life, score, board, playable_pieces, initial_parameters)
-        piece_choice = input("Choisissez une pièce :")
-        while len(playable_pieces.keys()) < piece_choice < 1:
-            piece_choice = input("Choisissez une pièce :")
+        piece_choice = display_functions.display_piece_choice(playable_pieces)
         print()
-        piece_coordinates = input("Choisissez son emplacement :")
-        verify(board, piece_choice, piece_coordinates)
+        piece_coordinates = display_functions.display_piece_coordinates()
+        verify(board, piece_choice, piece_coordinates, playable_pieces)
 
 #    with open("Boards/" + board + ".txt", 'r'):
 #
