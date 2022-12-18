@@ -157,14 +157,6 @@ def display_pieces(game_mode, playable_pieces):
         display_pieces_defi_modev3(playable_pieces)
 
 
-def display_piece_choice(playable_pieces):
-    piece_choice = input("Choisissez une pièce :")
-    if piece_choice != "quitter":
-        while len(playable_pieces.keys()) < int(piece_choice) < 1:
-            piece_choice = input("Choisissez une pièce :")
-    return piece_choice
-
-
 def display_game1(life, score, board, pieces, initial_parameters):
     print("\n" * 20)
     display_life(life)

@@ -114,3 +114,12 @@ piece_coordinates = "Aa"
 #    return coordinates
 
 #attribute_coordinates_to_line_columns(piece_coordinates)
+
+piece_coordinates = "Gh"
+def attribute_coordinates_to_linecolumns(piece_coordinates):
+    line = ord(piece_coordinates[0])
+    column = ord(piece_coordinates[1])
+    coordinates = [line - 63, 3 * (column - ord("a") + 1)]
+    print(coordinates)
+
+attribute_coordinates_to_linecolumns(piece_coordinates)

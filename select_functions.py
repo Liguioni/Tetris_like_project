@@ -42,6 +42,14 @@ def choose_initial_parameters():
     return parameters
 
 
+def choose_piece(playable_pieces):
+    piece_choice = input("Choisissez une pièce :")
+    if piece_choice != "quitter":
+        while len(playable_pieces.keys()) < int(piece_choice) < 1:
+            piece_choice = input("Choisissez une pièce :")
+    return piece_choice
+
+
 def choose_piece_coordinates(board):
     piece_coordinates = modify_functions.attribute_coordinates_to_linecolumns(input("Choisissez son emplacement :"))
     while len(board)-2 < piece_coordinates[0] < 2 or len(board[1])-6 < piece_coordinates[1] < 3:

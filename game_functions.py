@@ -4,10 +4,8 @@ import select_functions
 
 
 def verify(board, piece, piece_coordinates, playable_pieces, life, score):
-    i = 27
-    j = 3
-    k = 4
-    l = 1
+    import time
+    i, j, k, l = 27, 3, 4, 1
     verification = True
     while i != piece_coordinates[0]:
         i -= 1
@@ -15,21 +13,24 @@ def verify(board, piece, piece_coordinates, playable_pieces, life, score):
         j += 3
     while verification is True and k >= 0:
         while verification is True and l <= 13:
-            if board == 0 and playable_pieces[piece][k][l] == 1:
+            if int(board[i][j]) == 0 and int(playable_pieces[int(piece)][k][l]) == 1:
                 life -= 1
                 verification = False
                 print("Emplacement non-valide")
-            elif board == 2 and playable_pieces[piece][k][l] == 1:
+                time.sleep(2)
+            elif int(board[i][j]) == 2 and int(playable_pieces[int(piece)][k][l]) == 1:
                 life -= 1
                 verification = False
                 print("Emplacement non-valide")
+                time.sleep(2)
             else:
-                board[i][j] = str(int(board[i][j]) + int(playable_pieces[piece][k][l]))
-            j += 3
-            l += 3
-        j = j - (3*5)
+                board[i] = board[i][:j] + str(int(board[i][j]) + int(playable_pieces[int(piece)][k][l])) + board[i][j+1:]
+                j += 3
+                l += 3
+        j -= 3*5
         i -= 1
         k -= 1
+        l = 1
     if verification is True:
         score += 100
     maj = [board, life, score]
@@ -44,7 +45,7 @@ def play():
     score = 0
     while life > 0:
         display_functions.display_game1(life, score, board, playable_pieces, initial_parameters)
-        piece_choice = display_functions.display_piece_choice(playable_pieces)
+        piece_choice = select_functions.choose_piece(playable_pieces)
         if piece_choice == "quitter":
             life = 0
         else:
@@ -54,3 +55,6 @@ def play():
             board = maj[0]
             life = maj[1]
             score = maj[2]
+        if life == 0:
+            print("Game Over")
+        

@@ -68,5 +68,5 @@ def change_character_piece(line):
 def attribute_coordinates_to_linecolumns(piece_coordinates):
     line = ord(piece_coordinates[0])
     column = ord(piece_coordinates[1])
-    coordinates = [line - 65 + 2, column - 97 + 3 + 3 * column - ord("a")]
+    coordinates = [line - 63, 3 * (column - ord("a") + 1)]
     return coordinates
