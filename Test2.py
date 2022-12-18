@@ -1,4 +1,4 @@
-import other_functions
+import modify_functions
 import game_functions
 import navigate_functions
 import display_functions
