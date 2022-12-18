@@ -114,6 +114,3 @@ piece_coordinates = "Aa"
 #    return coordinates
 
 #attribute_coordinates_to_line_columns(piece_coordinates)
-
-with open("Boards/triangle.txt", 'r') as triangle:
-    print(len(triangle.readlines()))

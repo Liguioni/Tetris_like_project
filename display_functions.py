@@ -95,7 +95,17 @@ def display_score(score):
     print("==============================")
 
 
-def display_pieces_Zen_mode(playable_pieces):
+def display_piece(playable_pieces, piece_choice):
+    for i in range(5):
+        if i == 4:
+            line = other_functions.change_character_piece(playable_pieces[int(piece_choice)][i])
+            line = line[:1] + "■" + line[2:]
+        else:
+            line = other_functions.change_character_piece(playable_pieces[int(piece_choice)][i])
+        print(line)
+
+
+def display_pieces_zen_mode(playable_pieces):
     times = int((len(playable_pieces.keys())) // 10)
     for j in range(times):
         for k in range(5):
@@ -124,13 +134,16 @@ def display_pieces_Zen_mode(playable_pieces):
     print()
 
 
-def display_pieces_Defi_modeV3(playable_pieces):
-    ChosenPiece = game_functions.select_3_random_piece_keys(playable_pieces)
+def display_pieces_defi_modev3(playable_pieces):
+    chosen_piece = game_functions.select_3_random_piece_keys(playable_pieces)
     for k in range(5):
-        for j in range(len(ChosenPiece)):
-            line = other_functions.change_character_piece(playable_pieces[ChosenPiece[j]][k])
+        for j in range(len(chosen_piece)):
+            line = other_functions.change_character_piece(playable_pieces[chosen_piece[j]][k])
             if k == 2:
-                print("   ", str(j+1) + ":", line, end="")
+                if chosen_piece[j] < 10:
+                    print("   ", str(chosen_piece[j]) + ":", line, end="")
+                else:
+                    print("  ", str(chosen_piece[j]) + ":", line, end="")
             else:
                 print("      ", line, end="")
         print()
@@ -139,21 +152,9 @@ def display_pieces_Defi_modeV3(playable_pieces):
 
 def display_pieces(game_mode, playable_pieces):
     if game_mode == "Zen":
-        display_pieces_Zen_mode(playable_pieces)
+        display_pieces_zen_mode(playable_pieces)
     else:
-        display_pieces_Defi_modeV3(playable_pieces)
-
-
-def display_game(life, score, board, pieces, initial_parameters):
-    print()
-    display_life(life)
-    print()
-    display_score(score)
-    print()
-    display_grid(other_functions.change_character_board(board))
-    print()
-    display_pieces(initial_parameters[1], pieces)
-    print()
+        display_pieces_defi_modev3(playable_pieces)
 
 
 def display_piece_choice(playable_pieces):
@@ -165,7 +166,32 @@ def display_piece_choice(playable_pieces):
 
 
 def display_piece_coordinates(board):
-    piece_coordinates = other_functions.attribute_coordinates_to_line_columns(input("Choisissez son emplacement :"))
+    piece_coordinates = other_functions.attribute_coordinates_to_linecolumns(input("Choisissez son emplacement :"))
     while len(board)-2 < piece_coordinates[0] < 2 or len(board[1])-6 < piece_coordinates[1] < 3:
-        piece_coordinates = other_functions.attribute_coordinates_to_line_columns(input("Choisissez son emplacement :"))
+        print()
+        piece_coordinates = other_functions.attribute_coordinates_to_linecolumns(input("Choisissez son emplacement :"))
     return piece_coordinates
+
+
+def display_game1(life, score, board, pieces, initial_parameters):
+    print("\n" * 20)
+    display_life(life)
+    print()
+    display_score(score)
+    print()
+    display_grid(other_functions.change_character_board(board))
+    print()
+    display_pieces(initial_parameters[1], pieces)
+    print()
+
+
+def display_game2(life, score, board, pieces, piece_choice):
+    print("\n" * 20)
+    display_life(life)
+    print()
+    display_score(score)
+    print()
+    display_grid(other_functions.change_character_board(board))
+    print()
+    display_piece(pieces, piece_choice)
+    print()
