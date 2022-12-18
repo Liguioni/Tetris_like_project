@@ -66,19 +66,37 @@ def select_3_random_piece_keys(playable_pieces):
     return liste
 
 
-def verify(board, piece, piece_coordinates, playable_pieces):
-    for i in range(5):
-        for j in range(5):
-            piece
-    for i in range(27, 1, -1):
-        if i == piece_coordinates[0]:
-            for j in range(3, len(board)-3, 3):
-                if j == piece_coordinates[1]:
-                    if board[i][j] != 0:
-                        if board[i][j] == 1:
-                            board[i][j] = 2
-                        else:
-
+def verify(board, piece, piece_coordinates, playable_pieces, life, score):
+    i = 27
+    j = 3
+    k = 4
+    l = 1
+    verification = True
+    while i != piece_coordinates[0]:
+        i -= 1
+    while j != piece_coordinates[1]:
+        j += 3
+    while verification is True and k >= 0:
+        while verification is True and l <= 13:
+            if board == 0 and playable_pieces[piece][k][l] == 1:
+                life -= 1
+                verification = False
+                print("Emplacement non-valide")
+            elif board == 2 and playable_pieces[piece][k][l] == 1:
+                life -= 1
+                verification = False
+                print("Emplacement non-valide")
+            else:
+                board[i][j] = str(int(board[i][j]) + int(playable_pieces[piece][k][l]))
+            j += 3
+            l += 3
+        j = j - (3*5)
+        i -= 1
+        k -= 1
+    if verification is True:
+        score += 1000
+    maj = [board, life, score]
+    return maj
 
 
 def choose_initial_parameters():
@@ -92,12 +110,20 @@ def play():
     board = other_functions.transform_board_into_matrice(initial_parameters[0])
     life = 3
     score = 0
-    while life > 0 or piece_choice != "quitter":
+    while life > 0:
         display_functions.display_game(life, score, board, playable_pieces, initial_parameters)
         piece_choice = display_functions.display_piece_choice(playable_pieces)
+        if piece_choice == "quitter":
+            life = 0
         print()
-        piece_coordinates = display_functions.display_piece_coordinates()
-        verify(board, piece_choice, piece_coordinates, playable_pieces)
+        while piece_choice != "quitter":
+            piece_coordinates = display_functions.display_piece_coordinates(board)
+            print()
+            maj = verify(board, piece_choice, piece_coordinates, playable_pieces, life, score)
+            board = maj[0]
+            life = maj[1]
+            score = maj[2]
+
 
 #    with open("Boards/" + board + ".txt", 'r'):
 #

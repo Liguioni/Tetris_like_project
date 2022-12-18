@@ -4,9 +4,9 @@ import game_functions
 
 def display_grid(matrice):
     for i in range(len(matrice)):
-            for j in range(len(matrice[i])):
-                print(matrice[i][j], end="")
-            print("")
+        for j in range(len(matrice[i])):
+            print(matrice[i][j], end="")
+        print("")
 
 
 def display_welcome():
@@ -58,8 +58,12 @@ def display_3_boards():
         triangle.close()
     board = []
     for i in range(0, 29):
-        line = L[i][:-1] + "     " + C[i][:-1] + "     " + T[i][:-1]
-        board.append(line)
+        if i <= 15:
+            line = L[i][:-1] + "     " + C[i][:-1] + "     " + T[i][:-1]
+            board.append(line)
+        else:
+            line = L[i][:-1] + "     " + C[i][:-1]
+            board.append(line)
     grid = other_functions.change_character_board(board)
     display_grid(grid)
 
@@ -154,13 +158,14 @@ def display_game(life, score, board, pieces, initial_parameters):
 
 def display_piece_choice(playable_pieces):
     piece_choice = input("Choisissez une pièce :")
-    while len(playable_pieces.keys()) < piece_choice < 1:
-        piece_choice = input("Choisissez une pièce :")
+    if piece_choice != "quitter":
+        while len(playable_pieces.keys()) < int(piece_choice) < 1:
+            piece_choice = input("Choisissez une pièce :")
     return piece_choice
 
 
-def display_piece_coordinates():
-    piece_coordinates = other_functions.transform_coordinates_to_line_columns(input("Choisissez son emplacement :"))
-    while ord("Z") < piece_coordinates[0] < ord("A") and ord("z") < piece_coordinates[1] < ord("a"):
-        piece_coordinates = other_functions.transform_coordinates_to_line_columns(input("Choisissez son emplacement :"))
+def display_piece_coordinates(board):
+    piece_coordinates = other_functions.attribute_coordinates_to_line_columns(input("Choisissez son emplacement :"))
+    while len(board)-2 < piece_coordinates[0] < 2 or len(board[1])-6 < piece_coordinates[1] < 3:
+        piece_coordinates = other_functions.attribute_coordinates_to_line_columns(input("Choisissez son emplacement :"))
     return piece_coordinates
