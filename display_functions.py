@@ -1,5 +1,5 @@
 import modify_functions
-import game_functions
+import select_functions
 
 
 def display_grid(matrice):
@@ -135,7 +135,7 @@ def display_pieces_zen_mode(playable_pieces):
 
 
 def display_pieces_defi_modev3(playable_pieces):
-    chosen_piece = game_functions.select_3_random_piece_keys(playable_pieces)
+    chosen_piece = select_functions.select_3_random_piece_keys(playable_pieces)
     for k in range(5):
         for j in range(len(chosen_piece)):
             line = modify_functions.change_character_piece(playable_pieces[chosen_piece[j]][k])
@@ -178,4 +178,14 @@ def display_game2(life, score, board, pieces, piece_choice):
     display_grid(modify_functions.change_character_board(board))
     print()
     display_piece(pieces, piece_choice)
+    print()
+
+
+def display_game3(life, score, board):
+    print("\n" * 20)
+    display_life(life)
+    print()
+    display_score(score)
+    print()
+    display_grid(modify_functions.change_character_board(board))
     print()
