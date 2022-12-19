@@ -17,3 +17,5 @@ Les 5 fichiers .py contenant les fonctions sont:
         - modify_functions.py qui permet de changer le type de certaines variable pour faciliter leurs utilisations dans d'autres fonctions.
 
 Une fois le programme lancé, l'utilisateur arrive sur le menu qui lui propose deux choix, taper 1 et choisir les paramètres de la partie, ou taper 2 et lire les règles.
+
+Pour plus d'inforations sur comment jouer, veuillez consulter les règles.
