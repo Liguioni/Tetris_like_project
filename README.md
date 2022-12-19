@@ -6,11 +6,15 @@ Parmi ces 8, 2 ont servi à tester des programmes, 5 contiennent toutes les fonc
 le dernier nommé "Start.py" sert à lancer le jeu (run le programme).
 Les 5 fichiers .py contenant les fonctions sont:
         - display_functions.py qui contient toute les fonction servant à afficher
+	
         - game_functions.py qui contient les fonctions essentielles servant à jouer:
-                      la fonction play qui est le noyau du jeu, elle relie toute les fonctions et permet de les enchainé pour faire fonctionner le jeu.
+                      la fonction play qui est le noyau du jeu, elle relie toute les fonctions et permet de les enchainer pour faire fonctionner le jeu.
                       la fonction verify qui vérifie si l'emplacement de la pièce est valide
+		      
         - select_functions.py qui contient les fonctions servant a sélectionner le plateau, le mode de jeu, la pièce, et les coordonnés.
+	
         - navigate_functions.py qui permet de naviguer entre l'accueuil, les règles et le jeu.
+	
         - modify_functions.py qui permet de changer le type de certaines variable pour faciliter leurs utilisations dans d'autres fonctions.
 
 Une fois le programme lancé, l'utilisateur arrive sur le menu qui lui propose deux choix, taper 1 et choisir les paramètres de la partie, ou taper 2 et lire les règles.
