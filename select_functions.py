@@ -55,7 +55,7 @@ def choose_piece_coordinates(board):
     piece_coordinates = modify_functions.attribute_coordinates_to_linecolumns(piece_coordinates_choice)
     while (len(board)-2 < piece_coordinates[0] < 2 or len(board[1])-6 < piece_coordinates[1] < 3) or len(piece_coordinates_choice) > 2:
         print()
-        piece_coordinates_choice = modify_functions.attribute_coordinates_to_linecolumns(input("Choisissez son emplacement :"))
+        piece_coordinates_choice = input("Choisissez son emplacement :")
         piece_coordinates = modify_functions.attribute_coordinates_to_linecolumns(piece_coordinates_choice)
     return piece_coordinates
 
