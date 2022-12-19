@@ -5,6 +5,7 @@ Le projet est composé de 8 fichiers  .py
 Parmi ces 8, 2 ont servi à tester des programmes, 5 contiennent toutes les fonctions nécessaires au bon fonctionnement du jeu et 
 le dernier nommé "Start.py" sert à lancer le jeu (run le programme).
 Les 5 fichiers .py contenant les fonctions sont:
+
         - display_functions.py qui contient toute les fonction servant à afficher
 	
         - game_functions.py qui contient les fonctions essentielles servant à jouer:
