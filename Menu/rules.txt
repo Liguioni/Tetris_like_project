@@ -1,21 +1,30 @@
-Règles du tetris like:
+Regles du tetris like:
 
-Le but est de placer vos pièces de telle sorte qu'elles forment des lignes et des colonnes.
-Vos points sont comptés en fonction du nombre de lignes et de colonnes que vous remplissez.
+Le but est de placer vos pieces de telle sorte qu'elles forment des lignes et des colonnes.
+Vos points sont comptes en fonction du nombre de lignes et de colonnes que vous remplissez.
 Les lignes et les colonees remplies disparaitront.
-Vous disposez de 3 vies pour poser vos pièces.
-Pour poser une pièce il suffit d'indiquer les coordonnées du coin en bas à gauche de la pièce.
+Vous disposez de 3 vies pour poser vos pieces. Une vie est perdue lorsque le placement d'une pièce est mauvais.
 
-ATTENTION :
+Les pieces sont au format standardise 5x5.
 
-Les pièces sont au format standardisé 5x5.
-Certaines pièces ne remplissent pas forcément le coin en bas à gauche.
-Le point de référence vous sera indiqué par un clignotement du pixel en question.
+Quand le joueur sélectionne play, avant de commencer la partie, il doit d'abord choisir les paramètres de celle-ci.
 
+Lors du choix des paramètres,  le joueur a d'abord le choix entre 3 plateaux de jeu:
+	- Un plateau losange
+	- Un plateau cercle
+	- Un plateau triangle
+La forme du plateau va influer sur les pieces auquelles vous aurez acces.
 
-Lors du lancement du jeu, vous devrez choisir la forme de votre plateau ainsi que la difficulté.
-La forme du plateau va influer sur les pièces auquelles vous aurez accès.
+Ensuite, le joueur doit choisir entre 2 modes de jeu:
+Les modes de jeu proposees son : "Zen" et "Defi"
 
-Les difficultés proposées son : "Zen" et "Challenge"
+En mode Zen : Toutes les pièces sont affichées à côté d'un numéro. Le joueur tape le numéro de la pièce qu'il veut jouer.
 
-En mode Zen : Toutes les pièces
+En mode Defi : 3 pièces sont choisies et affichées aléatoirement à côté du numéro qui leur correspond. Le joueur tape le numéro de la pièce qui l'intéresse.
+
+Suite à cette étape, le joueur doit placer la pièce qu'il a sélectionné.
+
+Pour cela, il doit rentrer des coordonnés sous la forme : Aa
+'A' représente la ligne.
+'a' représente la colonne.
+ Attention !! Ces coordonnés correspondent, sur la pièce, au coin en bas à gauche. Celui-ci est reconnaissable grâce au carré blanc.
