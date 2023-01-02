@@ -115,7 +115,7 @@ piece_coordinates = "Aa"
 
 #attribute_coordinates_to_line_columns(piece_coordinates)
 
-piece_coordinates = "Gh"
+piece_coordinates = [4,5] # [ligne, colonne]
 #def attribute_coordinates_to_linecolumns(piece_coordinates):
 #    line = ord(piece_coordinates[0])
 #    column = ord(piece_coordinates[1])
@@ -123,4 +123,35 @@ piece_coordinates = "Gh"
 #    print(coordinates)
 
 #attribute_coordinates_to_linecolumns(piece_coordinates)
+
+# board est une liste 2D pour représentant le tableau.
+# piece est une liste 2D pour une pièce quelconque de dimension 5x5
+
+ligne = piece_coordinates[0]
+colonne = piece_coordinates[1]
+i = -1
+j = 0
+
+possible = True
+while possible is True and i >= -5:
+    while possible is True and j <= 4:
+        if (1 > ligne > (len(board) - 1)) or (1 > colonne > len(board[0] - 1)):
+            if piece[i][j] == 1:
+                possible = False
+        else:
+            if (piece[i][j] == 1) and (board[ligne][colonne] == 0):
+                possible = False
+            elif (piece[i][j] == 1) and (board[ligne][colonne] == 2):
+                possible = False
+            elif (piece[i][j] == 1) and (board[ligne][colonne] == 1):
+                board[ligne] = board[ligne][:colonne] + "1" + board[ligne][colonne + 1:]
+        colonne += 1
+        j += 1
+    colonne = piece_coordinates[1]
+    j -= 5
+    i -= 1
+
+# deletable_lines est une liste de valeurs correspondant aux lignes supprimables
+# deletable_columns est une liste de valeurs correspondant aux colonnes supprimables
+
 

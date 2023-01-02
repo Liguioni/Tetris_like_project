@@ -45,18 +45,20 @@ def choose_initial_parameters():
 def choose_piece(playable_pieces):
     piece_choice = input("Choisissez une pièce :")
     if piece_choice != "quitter":
-        while len(playable_pieces.keys()) < int(piece_choice) < 1:
+        while int(piece_choice) not in list(playable_pieces.keys()) or len(piece_choice) > 2:
+            print()
             piece_choice = input("Choisissez une pièce :")
     return piece_choice
 
 
 def choose_piece_coordinates(board):
+    line = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    column = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     piece_coordinates_choice = input("Choisissez son emplacement :")
-    piece_coordinates = modify_functions.attribute_coordinates_to_linecolumns(piece_coordinates_choice)
-    while (len(board)-2 < piece_coordinates[0] < 2 or len(board[1])-6 < piece_coordinates[1] < 3) or len(piece_coordinates_choice) > 2:
+    while len(piece_coordinates_choice) != 2 or piece_coordinates_choice[0] not in line or piece_coordinates_choice[1] not in column:
         print()
         piece_coordinates_choice = input("Choisissez son emplacement :")
-        piece_coordinates = modify_functions.attribute_coordinates_to_linecolumns(piece_coordinates_choice)
+    piece_coordinates = modify_functions.attribute_coordinates_to_linecolumns(piece_coordinates_choice)
     return piece_coordinates
 
 
