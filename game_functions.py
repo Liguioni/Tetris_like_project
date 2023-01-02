@@ -87,7 +87,7 @@ def gravity_check(board, coordinates):
         elif coordinates[i] != 0 and board[coordinates[i] + 1][j] not in ("1", "2"):
             gravity_liste.append("Stop")
         else:
-            gravity_liste.append("Empty")
+            gravity_liste.append("Unnecessary")
         i += 1
     return gravity_liste
 
@@ -97,11 +97,14 @@ def gravity(board, life, score, lines_deleted):
         if "2" not in board[line]:
             coordinates = []
             for k in range(3, 79, 3):
-                l = 1
-                while line - l >= 2 and board[line - l][k] != "2":
-                    l += 1
-                if line - l >= 2:
-                    coordinates.append(line - l)
+                if board[line][k] != "0":
+                    l = 1
+                    while line - l >= 2 and board[line - l][k] != "2":
+                        l += 1
+                    if line - l >= 2:
+                        coordinates.append(line - l)
+                    else:
+                        coordinates.append(0)
                 else:
                     coordinates.append(0)
             gravity_liste = gravity_check(board, coordinates)
@@ -109,7 +112,7 @@ def gravity(board, life, score, lines_deleted):
                 m = 0
                 j = 3
                 for possibility in gravity_liste:
-                    if possibility not in ("Stop", "Empty"):
+                    if possibility not in ("Stop", "Unnecessary"):
                         line = coordinates[m]
                         for k in range(line, 1, -1):
                             if k + 1 <= 27 and board[k][j] != "0":

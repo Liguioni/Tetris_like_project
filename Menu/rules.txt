@@ -2,12 +2,12 @@ Regles du tetris like:
 
 Le but est de placer vos pieces de telle sorte qu'elles forment des lignes et des colonnes.
 Vos points sont comptes en fonction du nombre de lignes et de colonnes que vous remplissez.
-Les lignes et les colonees remplies disparaitront.
-Vous disposez de 3 vies pour poser vos pieces. Une vie est perdue lorsque le placement d'une pièce est mauvais.
+Les lignes et les colonnes remplies disparaitront.
+Vous disposez de 3 vies pour poser vos pieces. Une vie est perdue lorsque le placement d'une piece est mauvais.
 
 Les pieces sont au format standardise 5x5.
 
-Lorsque vous sélectionnez play, vous aurez deux choix à faire pour parametrer votre partie.
+Lorsque vous selectionnez play, vous aurez deux choix a faire pour parametrer votre partie.
 
 Vous aurez le choix entre 3 plateaux de jeu :
 	- Un plateau losange
@@ -15,8 +15,8 @@ Vous aurez le choix entre 3 plateaux de jeu :
 	- Un plateau triangle
 La forme du plateau influencera les pieces auxquelles vous aurez acces.
 
-Vous choisirez ensuite entre 2 modes de jeu:
-Les modes de jeu proposees sont : "Zen" et "Defi"
+Vous choisirez ensuite entre 2 modes de jeu :
+Les modes de jeu proposees sont : "Zen" et "Defi".
 
 En mode Zen : Toutes les pieces sont affichees a cote d'un numero.
 Le joueur tape le numero de la piece qu'il veut jouer.
