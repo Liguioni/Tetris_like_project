@@ -51,7 +51,7 @@ def choose_piece(playable_pieces):
     return piece_choice
 
 
-def choose_piece_coordinates(board):
+def choose_piece_coordinates():
     line = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     column = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     piece_coordinates_choice = input("Choisissez son emplacement :")

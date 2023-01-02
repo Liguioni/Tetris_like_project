@@ -162,12 +162,12 @@ def play():
             life = 0
         else:
             display_functions.display_game2(life, score, board, playable_pieces, piece_choice)
-            piece_coordinates = select_functions.choose_piece_coordinates(board)
+            piece_coordinates = select_functions.choose_piece_coordinates()
             maj = verify(board, piece_choice, piece_coordinates, playable_pieces, life, score)
             while maj[0] != life and maj[0] != 0:
                 life = maj[0]
                 display_functions.display_game2(life, score, board, playable_pieces, piece_choice)
-                piece_coordinates = select_functions.choose_piece_coordinates(board)
+                piece_coordinates = select_functions.choose_piece_coordinates()
                 maj = verify(board, piece_choice, piece_coordinates, playable_pieces, life, score)
             life = maj[0]
             score = maj[1]
