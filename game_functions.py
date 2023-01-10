@@ -30,8 +30,6 @@ def verify(board, piece, piece_coordinates, playable_pieces, life, score):
                     life -= 1
                     print("Emplacement non-valide")
                     time.sleep(2)
-                elif (int(playable_pieces[int(piece)][i][j]) == 1) and (int(board[line][column]) == 1):
-                    board[line] = board[line][:column] + "2" + board[line][column + 1:]
             column += 3
             j += 3
         column = piece_coordinates[1]
@@ -39,6 +37,7 @@ def verify(board, piece, piece_coordinates, playable_pieces, life, score):
         j -= 15
         i -= 1
     if verification is True:
+        modify_functions.put_piece_on_board(board, piece_coordinates, piece, playable_pieces)
         score += 100
     maj = [life, score]
     return maj

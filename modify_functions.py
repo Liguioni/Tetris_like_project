@@ -14,9 +14,10 @@ def transform_pieces_to_matrice(board):
     with open("Pieces/" + board + "_pieces.txt", "r") as special_pieces:
         contenu2 = special_pieces.read()
     common_pieces = contenu1.split("\n")
-    special_pieces= contenu2.split(("\n"))
+    special_pieces = contenu2.split(("\n"))
     playable_pieces = common_pieces + special_pieces
     return playable_pieces
+
 
 
 def transfer_pieces_to_dictionary(board):
@@ -70,3 +71,16 @@ def attribute_coordinates_to_linecolumns(piece_coordinates):
     column = ord(piece_coordinates[1])
     coordinates = [line - 63, 3 * (column - ord("a") + 1)]
     return coordinates
+
+
+def put_piece_on_board(board, piece_coordinates, piece, playable_pieces):
+    line = 0
+    for i in range(piece_coordinates[0], piece_coordinates[0] - 6, -1):
+        line -= 1
+        column = -2
+        if line >= -5:
+            for j in range(piece_coordinates[1], piece_coordinates[1] + 14, 3):
+                column += 3
+                if column <= 13:
+                    if playable_pieces[int(piece)][line][column] == "1":
+                        board[i] = board[i][:j] + "2" + board[i][j + 1:]
